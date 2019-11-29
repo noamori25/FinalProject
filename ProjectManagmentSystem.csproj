@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{179578E9-8BC2-4CC1-8A5D-C04AEDA0A231}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectManagmentSystem</RootNamespace>
+    <AssemblyName>ProjectManagmentSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.4.6.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.7.0\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.4.6.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.4.6.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.4.6.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\FlightCenterConfig.cs" />
+    <Compile Include="BLL\FlyingCenterSystem.cs" />
+    <Compile Include="BLL\Intefaces\ILoginService.cs" />
+    <Compile Include="BLL\Intefaces\ILoginToken.cs" />
+    <Compile Include="BLL\LoginService.cs" />
+    <Compile Include="BLL\LoginToken.cs" />
+    <Compile Include="DAO\AirlineDAOMSSQL.cs" />
+    <Compile Include="DAO\CountryDAOMSSQL.cs" />
+    <Compile Include="DAO\CustomerDAOMSSQL.cs" />
+    <Compile Include="DAO\DeleteDataDAO.cs" />
+    <Compile Include="DAO\FlightDAOMSSQL.cs" />
+    <Compile Include="DAO\Interfaces\IAirlineDAO.cs" />
+    <Compile Include="DAO\Interfaces\IBasicDB.cs" />
+    <Compile Include="DAO\Interfaces\ICountryDAO.cs" />
+    <Compile Include="DAO\Interfaces\ICustomerDAO.cs" />
+    <Compile Include="DAO\Interfaces\IFlightDAO.cs" />
+    <Compile Include="DAO\Interfaces\ITicketDAO.cs" />
+    <Compile Include="DAO\TicketDAOMSSQL.cs" />
+    <Compile Include="Exceptions\CountryInUseException.cs" />
+    <Compile Include="Exceptions\IncorrectIdException.cs" />
+    <Compile Include="Exceptions\TicketsSoldOutException.cs" />
+    <Compile Include="Exceptions\UserAlreadyExistException.cs" />
+    <Compile Include="Exceptions\UserNotFoundException.cs" />
+    <Compile Include="Exceptions\WrongPasswordException.cs" />
+    <Compile Include="Facade\AnonymousUserFacade.cs" />
+    <Compile Include="Facade\FacadeBase.cs" />
+    <Compile Include="Facade\Interfaces\IAnonymousUserFacade.cs" />
+    <Compile Include="Facade\Interfaces\ILoggedInAdministratorFacade.cs" />
+    <Compile Include="Facade\Interfaces\ILoggedInAirlineFacade.cs" />
+    <Compile Include="Facade\Interfaces\ILoggedInCustomerFacade.cs" />
+    <Compile Include="Facade\LoggedInAdministratorFacade.cs" />
+    <Compile Include="Facade\LoggedInAirlineFacade.cs" />
+    <Compile Include="Facade\LoggedInCustomerFacade.cs" />
+    <Compile Include="POCO\Administrator.cs" />
+    <Compile Include="POCO\AirlineCompany.cs" />
+    <Compile Include="POCO\Country.cs" />
+    <Compile Include="POCO\Customer.cs" />
+    <Compile Include="POCO\Flight.cs" />
+    <Compile Include="POCO\Interfaces\IPoco.cs" />
+    <Compile Include="POCO\Interfaces\IUser.cs" />
+    <Compile Include="POCO\Ticket.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
